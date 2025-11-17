@@ -4,6 +4,9 @@ import TaskEditModal from "./components/TaskEditModal";
 import Task from "./components/Task";
 import TabList from "./components/TabList";
 
+// Базовый URL для всех API запросов
+axios.defaults.baseURL = '/taski';
+
 axios.interceptors.response.use(function (response) {
   if (response.headers['content-type'] !== 'application/json') {
     alert('unsupport data format in server response')
