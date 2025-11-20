@@ -121,3 +121,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
+
+# Или более надежный вариант - добавьте явное указание домена
+if not DEBUG:
+    # Для продакшена используем внешний домен
+    CSRF_TRUSTED_ORIGINS = ['http://prac.myftp.org', 'http://89.169.182.181']
+else:
+    # Для разработки используем локальные адреса
+    CSRF_TRUSTED_ORIGINS = ['http://localhost', 'http://127.0.0.1']
