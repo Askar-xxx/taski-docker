@@ -5,7 +5,7 @@ import Task from "./components/Task";
 import TabList from "./components/TabList";
 
 // Базовый URL для всех API запросов
-axios.defaults.baseURL = '/taski';
+axios.defaults.baseURL = '';
 
 axios.interceptors.response.use(function (response) {
   if (response.headers['content-type'] !== 'application/json') {
